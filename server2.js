@@ -38,7 +38,7 @@ router.route('/test')
           var t=st.strings(l);
           console.log(t);
           console.log("after");
-          res.send(t);
+          res.send(t[0]+" "+t[1]);
        //   st.strings()
       }
  
