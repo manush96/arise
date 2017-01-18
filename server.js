@@ -174,6 +174,12 @@ router.use(function(req, res, next) {
   console.log('Something is happening.');
   next();
 });
+ router.route('/users')
+ .post(function(req,res)
+ {
+
+ }
+ )
 
 
 // REGISTER OUR ROUTES

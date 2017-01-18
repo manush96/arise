@@ -6,6 +6,7 @@
 		"body-parser": "~1.0.1",
 		"mysql": "~2.5.0",
 		"sequelize": "~1.7.0",
-		"crypto": "~0.0.3"
+		"crypto": "~0.0.3",
+		"request":"~2.79.0"
 	}
 }
