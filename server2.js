@@ -35,10 +35,9 @@ router.route('/test')
           console.log("before");
           var l=k.responses[0].textAnnotations[0].description;
           console.log(l);
-          var t=st.strings(l);
-          console.log(t);
+          res.send(st.strings(l));
+
           console.log("after");
-          res.send(t[0]+" "+t[1]);
        //   st.strings()
       }
  
