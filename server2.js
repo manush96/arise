@@ -3,7 +3,7 @@ var express = require('express'),
 var app = express();
 app.use(bodyParser());
 var env = app.get('env') == 'development' ? 'dev' : app.get('env');
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8081;
 var router = express.Router();
 var st=require('./book_manip.js');
 router.route('/test')
@@ -35,15 +35,16 @@ router.route('/test')
           console.log("before");
           var l=k.responses[0].textAnnotations[0].description;
           console.log(l);
-          res.send(st.strings(l));
+          var k1=st.strings(l);
+
+          res.send(k1);
 
           console.log("after");
-       //   st.strings()
+ 
       }
  
 })
 })
-
 app.use('/api',router);
 app.listen(port);
 console.log("magic happens on port 8080");

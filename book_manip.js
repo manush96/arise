@@ -4,8 +4,7 @@ exports.strings=function(c)
 	console.log(x.length);
 	trim(x);
 	del(x);
-
-	console.log(x);
+	return x;
 }
 function explode(c)
 {
