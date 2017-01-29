@@ -42,12 +42,37 @@ router.route('/test')
       	  {
       	  	var l="No\nResponse\nFound";
       	  }
-          l="SHWIN\nSANGHI\n& JAMES PATTERSON\nITS THE SEASON FOR MURDER IN MUMBAI\n";
           l = st.reform(l);
           var search=require("./books.js");
           search.res(l,function(response)
           {
-            res.send(response);
+            var k=response;
+            var authors=k.volumeInfo.authors;
+            var title=k.volumeInfo.title;
+            var description=k.volumeInfo.description;
+            var wiki=require("./wiki");
+            var l=wiki.search(authors,function(response)
+              {
+                  var twee=require("./tweets.js");
+                  var wikia=response;
+                  if(authors.constructor==Array)
+                  {
+                   var l1=twee.tweets(authors[0],function(response)
+                    {
+                      var arr={"title":title,"author":authors,"about":wikia,"description":description,"tweets":response};
+                      res.send(arr);
+                    });
+                  }
+                  else{
+                     var l1=twee.tweets(authors,function(response)
+                    {
+                      console.log(description)
+                      var arr={"title":title,"author":authors,"about":wikia,"description":description,"tweets":response};
+                      res.send(arr);
+                    });
+                  }
+              });
+
           })
        	}
  
